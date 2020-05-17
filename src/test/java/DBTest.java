@@ -27,7 +27,27 @@ public class DBTest extends BaseTest {
 
     @Test(priority = 2)
     public void insertData() {
+        try {
+            statement = conn.createStatement();
+            String sql = "INSERT INTO Registration " +
+                    "VALUES (1, 'Max', 'Smith', 18)";
+            statement.executeUpdate(sql);
 
+            sql = "INSERT INTO Registration " +
+                    "VALUES (2, 'Alex', 'Williams', 25)";
+            statement.executeUpdate(sql);
+
+            sql = "INSERT INTO Registration " +
+                    "VALUES (3, 'Andrew', 'Davis', 30)";
+            statement.executeUpdate(sql);
+
+            sql = "INSERT INTO Registration " +
+                    "VALUES(4, 'John', 'Miller', 28)";
+            statement.executeUpdate(sql);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     @Test(priority = 3)
